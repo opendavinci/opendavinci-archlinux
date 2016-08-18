@@ -16,14 +16,20 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 # Date: 2016-08-11
-
 FROM base/archlinux:latest
 MAINTAINER Christian Berger "christian.berger@gu.se"
 
-# Installing OpenDaVINCI dependencies.
-RUN pacman -ySu
+# prepare system
+RUN pacman-key --init
+RUN yes | pacman --noconfirm -Sc
+RUN yes | pacman --noconfirm -Sy pacman
+RUN pacman-db-upgrade
+RUN yes | pacman --noconfirm -S archlinux-keyring
+RUN pacman-key --init
+RUN yes | pacman --noconfirm -Syu
 
-RUN pacman -ySu \
+# Installing OpenDaVINCI dependencies.
+RUN pacman --noconfirm -S \
     apache-ant \
     jdk8-openjdk \
     boost \
