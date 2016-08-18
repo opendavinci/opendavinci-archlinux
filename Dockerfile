@@ -34,6 +34,7 @@ RUN pacman --noconfirm -S \
     jdk8-openjdk \
     boost \
     cmake \
+    ffmpeg2.8 \
     freeglut \
     gcc \
     git \
