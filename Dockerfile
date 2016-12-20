@@ -44,3 +44,5 @@ RUN pacman --noconfirm -S \
     python2 \
     qt4 \
     qwt5
+
+RUN pacman --noconfirm -S gdb
