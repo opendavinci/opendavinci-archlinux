@@ -46,3 +46,5 @@ RUN pacman --noconfirm -S \
     qwt5
 
 RUN pacman --noconfirm -S gdb
+
+RUN pacman --noconfirm -S ncurses
