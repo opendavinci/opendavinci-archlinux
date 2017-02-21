@@ -15,7 +15,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
-# Date: 2016-08-11
+# Date: 2017-02-21
 FROM base/archlinux:latest
 MAINTAINER Christian Berger "christian.berger@gu.se"
 
@@ -43,7 +43,8 @@ RUN pacman --noconfirm -S \
     opencv \
     python2 \
     qt4 \
-    qwt5
+    qwt5 \
+    ttf-dejavu
 
 RUN pacman --noconfirm -S gdb
 
