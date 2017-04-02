@@ -26,7 +26,7 @@ RUN yes | pacman --noconfirm -Sy pacman
 RUN pacman-db-upgrade
 RUN yes | pacman --noconfirm -S archlinux-keyring
 RUN pacman-key --init
-RUN yes | pacman --noconfirm -Syu
+RUN yes | pacman --noconfirm -Syu --force
 
 # Installing OpenDaVINCI dependencies.
 RUN pacman --noconfirm -S \
