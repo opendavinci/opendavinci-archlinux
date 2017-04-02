@@ -29,7 +29,7 @@ RUN pacman-key --init
 RUN yes | pacman --noconfirm -Syu --force
 
 # Installing OpenDaVINCI dependencies.
-RUN pacman --noconfirm -S \
+RUN pacman --noconfirm --force -S \
     apache-ant \
     jdk8-openjdk \
     boost \
@@ -44,8 +44,6 @@ RUN pacman --noconfirm -S \
     python2 \
     qt4 \
     qwt5 \
-    ttf-dejavu
-
-RUN pacman --noconfirm -S gdb
-
-RUN pacman --noconfirm -S ncurses
+    ttf-dejavu \
+    gdb \
+    ncurses
