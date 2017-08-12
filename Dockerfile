@@ -22,11 +22,15 @@ MAINTAINER Christian Berger "christian.berger@gu.se"
 # prepare system
 RUN pacman-key --init
 RUN yes | pacman --noconfirm -Sc
-RUN yes | pacman --noconfirm -Sy pacman
-RUN pacman-db-upgrade
-RUN yes | pacman --noconfirm -S archlinux-keyring
+RUN yes | pacman --noconfirm -Sy archlinux-keyring --force
 RUN pacman-key --init
-RUN yes | pacman --noconfirm -Syu --force
+RUN pacman-db-upgrade
+RUN yes | pacman -Syuw --noconfirm --force
+RUN rm /etc/ssl/certs/ca-certificates.crt
+RUN update-ca-certificates
+RUN yes | pacman -Su --noconfirm --force
+RUN pacman-db-upgrade
+RUN update-ca-trust
 
 # Installing OpenDaVINCI dependencies.
 RUN pacman --noconfirm --force -S \
